@@ -37,7 +37,7 @@ func WriteDataToFile(fileName string, content string) error {
 		// 查找文件末尾的偏移量
 		n, _ := f.Seek(0, os.SEEK_END)
 		// 从末尾的偏移量开始写入内容
-		_, err = f.WriteAt([]byte(content), n)
+		_, err = f.WriteAt([]byte(content+"\r\n"), n)
 	}
 	defer f.Close()
 	return err
